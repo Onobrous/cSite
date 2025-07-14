@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igniting Hope - Exploring Faith, Building Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .content-section {
+            display: none; /* Hidden by default, shown by JS */
+        }
+        .content-section.active {
+            display: block;
+        }
+        .nav-link {
+            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-emerald-50 hover:text-emerald-800 transition-colors;
+        }
+        .nav-link.active {
+            @apply bg-emerald-700 text-white hover:bg-emerald-800;
+        }
+        .cta-button {
+            @apply inline-block bg-emerald-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-emerald-800 transition-all transform hover:scale-105 hover:shadow-xl;
+        }
+        .secondary-button {
+             @apply inline-block bg-white text-emerald-700 font-semibold py-3 px-8 rounded-full border border-emerald-700 hover:bg-emerald-50 transition-all transform hover:scale-105;
+        }
+        .card {
+            @apply bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300;
+        }
+        .footer-link {
+            @apply text-gray-400 hover:text-emerald-400 transition-colors;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-emerald-800" onclick="showPage('home')">
+                        Igniting Hope
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" id="nav-home" class="nav-link active" onclick="showPage('home', this)">Home</a>
+                        <a href="#" id="nav-who-we-are" class="nav-link" onclick="showPage('who-we-are', this)">Who We Are</a>
+                        <a href="#" id="nav-what-we-explore" class="nav-link" onclick="showPage('what-we-explore', this)">What We Explore</a>
+                        <a href="#" id="nav-community-life" class="nav-link" onclick="showPage('community-life', this)">Community Life</a>
+                        <a href="#" id="nav-get-in-touch" class="nav-link" onclick="showPage('get-in-touch', this)">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-emerald-600 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="nav-link block active" onclick="showPage('home', this, true)">Home</a>
+                <a href="#" class="nav-link block" onclick="showPage('who-we-are', this, true)">Who We Are</a>
+                <a href="#" class="nav-link block" onclick="showPage('what-we-explore', this, true)">What We Explore</a>
+                <a href="#" class="nav-link block" onclick="showPage('community-life', this, true)">Community Life</a>
+                <a href="#" class="nav-link block" onclick="showPage('get-in-touch', this, true)">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+            <!-- New Hero Section -->
+            <div class="bg-stone-100">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="text-center md:text-left">
+                            <h1 class="text-4xl sm:text-5xl font-bold text-emerald-800 mb-6 leading-tight">
+                                Find connection.<br>Explore faith.
+                            </h1>
+                            <p class="text-lg text-gray-600 mb-10 max-w-lg mx-auto md:mx-0">
+                                Welcome to a warm community dedicated to understanding scripture and supporting each other's spiritual journey.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                                <a href="#" class="cta-button" onclick="showPage('who-we-are', document.getElementById('nav-who-we-are'))">
+                                    Learn More About Us
+                                </a>
+                                <a href="#" class="secondary-button" onclick="showPage('get-in-touch', document.getElementById('nav-get-in-touch'))">
+                                    Connect
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                             <img src="https://placehold.co/600x450/a7f3d0/14532d?text=Peaceful+Scenery" alt="Peaceful scenery" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Introduction Section -->
+            <div class="py-16 bg-white">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-3xl font-semibold text-emerald-800 mb-4">A Place to Connect, Learn, and Grow</h2>
+                    <p class="text-lg text-gray-500 max-w-3xl mx-auto mb-12">
+                        We are a diverse group of people from all walks of life, united by a desire to understand the Bible more deeply in a welcoming and open environment.
+                    </p>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="card">
+                            <h3 class="text-xl font-semibold text-emerald-700 mb-2">Vibrant Community</h3>
+                            <p class="text-gray-600">Join friendly gatherings, discussions, and activities that foster connection and belonging.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-xl font-semibold text-emerald-700 mb-2">Meaningful Study</h3>
+                            <p class="text-gray-600">Explore the teachings of the Bible in a structured yet open-minded way that's relevant to life today.</p>
+                        </div>
+                        <div class="card sm:col-span-2 lg:col-span-1">
+                             <h3 class="text-xl font-semibold text-emerald-700 mb-2">Personal Growth</h3>
+                            <p class="text-gray-600">Discover insights that can enrich your life, deepen your spiritual understanding, and provide a sense of purpose.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Are Section -->
+        <section id="who-we-are" class="content-section py-16 bg-stone-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                     <div class="md:order-2">
+                        <img src="https://placehold.co/600x400/d4d4d8/3f3f46?text=Candid+Group+Conversation" alt="A diverse group of people in conversation" class="rounded-2xl shadow-xl w-full">
+                    </div>
+                    <div class="md:order-1 text-lg text-gray-700 space-y-6">
+                        <h2 class="text-3xl font-bold text-emerald-800 mb-4">A Community of Open-Minded Seekers</h2>
+                        <p>Igniting Hope is a community of individuals wanting to understand the Bible and its relevance in today's world. We believe in fostering an environment of open discussion, mutual respect, and genuine care for one another.</p>
+                        <h3 class="text-2xl font-semibold text-emerald-700 mt-6 mb-3">Our Approach</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-600">
+                            <li><strong class="text-gray-700">Open to All:</strong> We welcome people from all backgrounds, beliefs, and walks of life.</li>
+                            <li><strong class="text-gray-700">Community Focused:</strong> Building strong, supportive friendships is at the heart of what we do.</li>
+                            <li><strong class="text-gray-700">Bible-Centred Learning:</strong> We engage in thoughtful study to uncover its profound messages.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Explore Section -->
+        <section id="what-we-explore" class="content-section py-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-emerald-800 mb-4 text-center">What We Explore Together</h2>
+                <p class="text-lg text-gray-500 max-w-3xl mx-auto mb-12 text-center">
+                    Our studies and discussions are designed to be engaging, insightful, and relevant. We delve into the scriptures to understand their timeless wisdom.
+                </p>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 text-center">
+                    <div class="card">
+                        <h3 class="text-2xl font-semibold text-emerald-700 mb-3">Scripture in Context</h3>
+                        <p class="text-gray-600">We take a thoughtful approach to studying the Bible, looking at context, prophecy, and parables to gain a clearer understanding of its message from Genesis to Revelation.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-semibold text-emerald-700 mb-3">Spiritual Growth</h3>
+                        <p class="text-gray-600">Our journey involves not just learning, but also applying these insights for personal development, fostering qualities like love, peace, and understanding.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-semibold text-emerald-700 mb-3">Finding Purpose</h3>
+                        <p class="text-gray-600">Many find that a deeper connection with scripture helps in discovering a greater sense of purpose and direction in life.</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                    <a href="#" class="cta-button" onclick="showPage('get-in-touch', document.getElementById('nav-get-in-touch'))">
+                        Join a Study Group
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Life Section -->
+        <section id="community-life" class="content-section py-16 bg-emerald-700 text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold mb-12 text-center">Our Community Life</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="bg-emerald-800/50 p-6 rounded-2xl space-y-4">
+                        <h3 class="text-2xl font-semibold">Regular Gatherings & Events</h3>
+                        <p class="text-emerald-100">From weekly study groups and discussion forums to social outings, BBQs, and cultural celebrations, there's always something happening.</p>
+                    </div>
+                    <div class="bg-emerald-800/50 p-6 rounded-2xl space-y-4">
+                        <h3 class="text-2xl font-semibold">Connection & Support</h3>
+                        <p class="text-emerald-100">We believe in being there for each other. Small groups provide a space for deeper sharing, prayer (if desired), and mutual support in a caring network.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get in Touch Section -->
+        <section id="get-in-touch" class="content-section py-16 bg-stone-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-emerald-800 mb-4 text-center">Get in Touch</h2>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-12 text-center">
+                    We'd love to hear from you! Whether you have questions or want to learn more, please don't hesitate to reach out.
+                </p>
+                <div class="max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input type="text" name="name" id="name" autocomplete="name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" name="email" id="email" autocomplete="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500" placeholder="Your questions or comments..."></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full cta-button">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Igniting Hope</h3>
+                    <p class="text-gray-400">Exploring faith, building community, and seeking understanding together.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link" onclick="showPage('home', document.getElementById('nav-home'))">Home</a></li>
+                        <li><a href="#" class="footer-link" onclick="showPage('who-we-are', document.getElementById('nav-who-we-are'))">Who We Are</a></li>
+                        <li><a href="#" class="footer-link" onclick="showPage('what-we-explore', document.getElementById('nav-what-we-explore'))">What We Explore</a></li>
+                        <li><a href="#" class="footer-link" onclick="showPage('get-in-touch', document.getElementById('nav-get-in-touch'))">Get in Touch</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Connect With Us</h3>
+                     <p class="text-gray-400 mb-4">Email: <a href="mailto:info@ignitinghope.org.au" class="text-emerald-400 hover:underline">info@ignitinghope.org.au</a></p>
+                </div>
+            </div>
+            <div class="mt-10 border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm text-gray-500">&copy; <span id="currentYear"></span> Igniting Hope. All rights reserved. (Mockup Website)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId, navElement, isMobile = false) {
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) targetPage.classList.add('active');
+
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            
+            if (navElement) {
+                navElement.classList.add('active');
+            } else {
+                const fallbackNav = document.querySelector(`#mobile-menu .nav-link[onclick*="'${pageId}'"], .hidden.md\\:block .nav-link[onclick*="'${pageId}'"]`);
+                if(fallbackNav) fallbackNav.classList.add('active');
+            }
+            
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (isMobile) {
+                mobileMenu.classList.add('hidden');
+                const menuButton = document.getElementById('mobile-menu-button');
+                menuButton.children[0].classList.remove('hidden');
+                menuButton.children[1].classList.add('hidden');
+            }
+             // Sync desktop nav active state
+            document.querySelectorAll('.hidden.md\\:block .nav-link').forEach(link => link.classList.remove('active'));
+            const desktopNav = document.getElementById('nav-' + pageId);
+            if(desktopNav) desktopNav.classList.add('active');
+
+
+            window.scrollTo(0, 0);
+        }
+
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuButton.children[0].classList.toggle('hidden');
+            menuButton.children[1].classList.toggle('hidden');
+        });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        window.onload = () => {
+            showPage('home', document.getElementById('nav-home'));
+        };
+    </script>
+
+</body>
+</html>
